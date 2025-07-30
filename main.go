@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fmt.Println("完成任务1：只出现一次的数字") 
+	fmt.Println("完成任务1：只出现一次的数字")
 	arr :=[9]int{1,2,3,4,5,1,3,4,5}
 	result := task.Task1(arr)
 	fmt.Println("只出现一次的数字是:", result)
@@ -15,9 +15,14 @@ func main() {
 	s := "((){}[]"
 	result2 := task.Task2(s)
 	if result2 {
-		
 		fmt.Println("符号有效")
 	} else {
 		fmt.Println("符号无效")
 	}
-}	
+
+	fmt.Println("完成任务3：匹配最长公共前缀")
+	arrStr := []string{"flower", "flow", "flight"}
+	result3 := task.Task3(arrStr)
+	fmt.Println("最长公共前缀是:", result3)
+
+}
