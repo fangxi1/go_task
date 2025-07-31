@@ -2,6 +2,7 @@ package task
 
 import (
 	"fmt"
+	"sort"
 )
 
 /*
@@ -33,6 +34,7 @@ func Task1(arr [9]int) int {
 	}
 	return 0
 }
+
 // 括号匹配：给定一个字符串，包含括号、花括号和方括号等符号，
 func Task2(s string) bool {
 	// 先把有效字符存入一个map中
@@ -87,9 +89,9 @@ func Task3(strs []string) string {
 	}
 	var prefix string
 	for i := 0; i < len(strs[0]); i++ {
-		flag :=false
+		flag := false
 		for j := 1; j < len(strs); j++ {
-			if(i> len(strs[j])-1) {
+			if i > len(strs[j])-1 {
 				// 如果第一个数组的第一个字母大于第二个数组的长度，则跳出循环
 				fmt.Println("第一个数组的第一个字母大于第二个数组的长度，跳出循环")
 				return prefix
@@ -97,35 +99,74 @@ func Task3(strs []string) string {
 			}
 			// 第一个数组的第一个字母和第二个数组的第一个字符对比
 			if strs[0][i] == strs[j][i] && j == len(strs)-1 {
-				flag =true
+				flag = true
 			}
 		}
-		if flag{
+		if flag {
 			prefix = prefix + string(strs[0][i])
 		}
 	}
 	return prefix
 }
 
-//给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
-func Task4(digits[]uint) []uint{
-	var num = 0;
-	 // 遍历数组
-	 for i :=len(digits)-1; i >=0; i-- {
-		if(i == len(digits)-1){
+// 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
+func Task4(digits []uint) []uint {
+	var num = 0
+	// 遍历数组
+	for i := len(digits) - 1; i >= 0; i-- {
+		if i == len(digits)-1 {
 			num = 1 // 如果是最后一个元素，则需要加1
 		}
 		if (int(digits[i]) + num) == 10 {
 			num = 1
 			digits[i] = 0
-		}else if num == 1 {
-			digits[i] = digits[i]+1
+		} else if num == 1 {
+			digits[i] = digits[i] + 1
 			num = 0
 		}
 		if num == 1 && i == 0 {
 			// 如果是第一个元素，且需要进位，则在前面添加1
 			digits = append([]uint{1}, digits...)
 		}
-	 }
-	 return digits
+	}
+	return digits
 }
+
+/*
+删除有序数组中的重复项：给你一个有序数组 nums ，请你原地删除重复出现的元素，
+使每个元素只出现一次，返回删除后数组的新长度。不要使用额外的数组空间，
+你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。可以使用双指针法，
+一个慢指针 i 用于记录不重复元素的位置，一个快指针 j 用于遍历数组，
+当 nums[i] 与 nums[j] 不相等时，将 nums[j] 赋值给 nums[i + 1]，
+并将 i 后移一位。
+*/
+func Task5(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	i := 0 // 慢指针，指向已处理的最后一个不重复元素
+    for j := 1; j < len(nums); j++ { // 快指针，遍历数组
+        if nums[j] != nums[i] {
+            i++
+            nums[i] = nums[j]
+        }
+    }
+    return i + 1 // 新数组长度
+}
+// 两数之和 
+func Task6(arr []int, target int) []int{
+	var nums = [2]int{}
+	for i := 0; i < len(arr); i++ {
+		for j := 1; j < len(arr); j++ {
+			sum :=arr[i]+arr[j]
+			if(sum == target){
+				nums[0] = arr[i]
+				nums[1] = arr[j]
+				break 
+			}
+		}
+	}
+	return nums[:]
+}
+
+
