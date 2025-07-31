@@ -106,3 +106,26 @@ func Task3(strs []string) string {
 	}
 	return prefix
 }
+
+//给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一
+func Task4(digits[]uint) []uint{
+	var num = 0;
+	 // 遍历数组
+	 for i :=len(digits)-1; i >=0; i-- {
+		if(i == len(digits)-1){
+			num = 1 // 如果是最后一个元素，则需要加1
+		}
+		if (int(digits[i]) + num) == 10 {
+			num = 1
+			digits[i] = 0
+		}else if num == 1 {
+			digits[i] = digits[i]+1
+			num = 0
+		}
+		if num == 1 && i == 0 {
+			// 如果是第一个元素，且需要进位，则在前面添加1
+			digits = append([]uint{1}, digits...)
+		}
+	 }
+	 return digits
+}

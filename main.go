@@ -25,4 +25,11 @@ func main() {
 	result3 := task.Task3(arrStr)
 	fmt.Println("最长公共前缀是:", result3)
 
+
+	fmt.Println("完成任务4：给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一")
+	param := []uint{9, 8, 9, 6, 8}
+	digits := task.Task4(param)
+	fmt.Println("加一之后的数组为:", digits)
+
+
 }
