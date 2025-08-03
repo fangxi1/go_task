@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"go_task/task" // 引入 task 包
-	"time"
+	// "time"
+
 )
 
 func main() {
@@ -67,16 +68,26 @@ func main() {
 	// 	fmt.Println("进阶任务2= 无结果")
 	// }
 
-	task_2_arr := []int{1,2,3,4,5,6,7,8,9,10}
-	for _, i := range task_2_arr {
-		go func() {
-			task.Task_3(i)
-		}()
-	}
-	time.Sleep(5*time.Second)
-	fmt.Println("进阶任务3完成")
+	// task_2_arr := []int{1,2,3,4,5,6,7,8,9,10}
+	// for _, i := range task_2_arr {
+	// 	go func() {
+	// 		task.Task_3(i)
+	// 	}()
+	// }
+	// time.Sleep(5*time.Second)
+	// fmt.Println("进阶任务3完成")
+
+	// task_2_4_arr := []int{30,20,40,50,60,90,100,200,300,10}
+	// task.Task_4(task_2_4_arr)
+	// time.Sleep(5*time.Second)
+	// fmt.Println("进阶任务4完成")
+	// 矩形面积
+	retangle := task.Rectangle{Width:1.2,Height:3.1}
+	task.ShapeImpl(retangle,"retangle")// 矩形
+	circle := task.Circle{Radius: 3.4}
+	task.ShapeImpl(circle,"circle")// 圆形
+	fmt.Println("进阶任务5完成")
 
 
-	
 
 }
