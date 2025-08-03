@@ -2,6 +2,7 @@ package task
 
 import (
 	"fmt"
+	"sort"
 )
 
 /*
@@ -152,8 +153,39 @@ func Task5(nums []int) int {
     }
     return i + 1 // 新数组长度
 }
+
+/*
+以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。
+请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。
+可以先对区间数组按照区间的起始位置进行排序，然后使用一个切片来存储合并后的区间，
+遍历排序后的区间数组，将当前区间与切片中最后一个区间进行比较，如果有重叠，则合并区间；
+如果没有重叠，则将当前区间添加到切片中。
+*/
+func Task6 (intervals [][]int) [][] int{
+	sort.Slice(intervals,func(i int,j int) bool{
+		return intervals[i][0]<intervals[j][0]
+	})
+	intelvalsNew := [][]int{intervals[0]}
+	fmt.Println("intervlasNew=",intelvalsNew)
+	for i :=1;i<len(intervals);i++{
+		curr := intervals[i]
+		last :=intelvalsNew[len(intelvalsNew)-1]
+		if(curr[0]<=last[1]){
+			// 有重叠，合并区间
+			if(curr[1]>last[1]){
+				last[1] = curr[1]
+			}
+			intelvalsNew[len(intelvalsNew)-1] = last
+		}else {
+			intelvalsNew = append(intelvalsNew, curr)
+		}
+	}
+	return intelvalsNew
+}
+
+
 // 两数之和 
-func Task6(arr []int, target int) []int{
+func Task7(arr []int, target int) []int{
 	var nums = [2]int{}
 	for i := 0; i < len(arr); i++ {
 		for j := 1; j < len(arr); j++ {

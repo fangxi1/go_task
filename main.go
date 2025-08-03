@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go_task/task" // 引入 task 包
+	"time"
 )
 
 func main() {
@@ -36,10 +37,16 @@ func main() {
 	// task5 := task.Task5(nums)
 	// fmt.Println("删除有序数组中的重复项,之后数组长度:", task5)
 
+	// 合并区间
+	// intervals := [][]int{{6,8},{2,6},{1,3}}
+	// task6 := task.Task6(intervals)
+	// fmt.Println("target=",task6)
+
+
 	// 找出两个数之和=target
 	// arrys := []int{1,2,3,3,4,5}
 	// target := 5
-	// task6 := task.Task6(arrys,target)
+	// task6 := task.Task7(arrys,target)
 	// fmt.Println("target=",task6)
 
 	// a := 2
@@ -48,15 +55,28 @@ func main() {
 	// i := task.Task_1(p)
 	// fmt.Println("进阶任务1=",i)
 
-	arr := []int{1,4,3}
-	var p []*int
-	for _,value :=range arr{
-		p = append(p, &value)
+	// arr := []int{1,4,3}
+	// var p []*int
+	// for _,value :=range arr{
+	// 	p = append(p, &value)
+	// }
+	// b := task.Task_2(p)
+	// if len(b) > 0 && b[0] != nil {
+	// 	fmt.Println("进阶任务2=", *b[0], *b[1], *b[2])
+	// } else {
+	// 	fmt.Println("进阶任务2= 无结果")
+	// }
+
+	task_2_arr := []int{1,2,3,4,5,6,7,8,9,10}
+	for _, i := range task_2_arr {
+		go func() {
+			task.Task_3(i)
+		}()
 	}
-	b := task.Task_2(p)
-	if len(b) > 0 && b[0] != nil {
-		fmt.Println("进阶任务2=", *b[0], *b[1], *b[2])
-	} else {
-		fmt.Println("进阶任务2= 无结果")
-	}
+	time.Sleep(5*time.Second)
+	fmt.Println("进阶任务3完成")
+
+
+	
+
 }
