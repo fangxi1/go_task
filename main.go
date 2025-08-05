@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"go_task/task" // 引入 task 包
 	// "time"
-
 )
 
 func main() {
@@ -82,12 +81,33 @@ func main() {
 	// time.Sleep(5*time.Second)
 	// fmt.Println("进阶任务4完成")
 	// 矩形面积
-	retangle := task.Rectangle{Width:1.2,Height:3.1}
-	task.ShapeImpl(retangle,"retangle")// 矩形
-	circle := task.Circle{Radius: 3.4}
-	task.ShapeImpl(circle,"circle")// 圆形
-	fmt.Println("进阶任务5完成")
+	// retangle := task.Rectangle{Width:1.2,Height:3.1}
+	// task.ShapeImpl(retangle,"retangle")// 矩形
+	// circle := task.Circle{Radius: 3.4}
+	// task.ShapeImpl(circle,"circle")// 圆形
+	// fmt.Println("进阶任务5完成")
 
+	// p := task.Person{Age: "32",Name: "测试"}
+	// e := task.Employee{EmployeeID: 21,Person: p}
+	// task.Print.PrintInfo(e)
+	// fmt.Println("进阶任务6完成")
 
+	// var ch chan int
+	// ch = make(chan int)
+	// task.ChannelTest1(ch)
+	// time.Sleep(5*time.Second)
+	// fmt.Println("进阶任务7完成")
+	
+	
+	// cha := make(chan int,30)
+	// task.ChannelTest2(cha)
+	// time.Sleep(5*time.Second)
+	// fmt.Println("进阶任务8完成")
 
+	task.LockTest()
+	fmt.Println("进阶任务9完成")
+
+	
+	task.LockTest2()
+	fmt.Println("进阶任务10完成")
 }

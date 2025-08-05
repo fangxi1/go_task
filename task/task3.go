@@ -47,3 +47,24 @@ func ShapeImpl(shape Shape,name string) {
 	fmt.Printf("名字=%s_area=%v \n",name,shape.Area())
 	fmt.Printf("名字=%s_Perimeter=%v \n",name,shape.Perimeter())
 }
+
+
+type Person struct{
+	Name string
+	Age string
+	
+}
+
+type Employee struct{
+	EmployeeID int
+	Person 
+}
+
+type Print interface{
+	PrintInfo() 
+}
+
+
+func (e Employee) PrintInfo() {
+	fmt.Printf("员工Id=%d,姓名=%s,年龄=%s",e.EmployeeID,e.Name,e.Age)
+}
