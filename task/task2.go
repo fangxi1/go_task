@@ -35,7 +35,7 @@ func Task_4(date []int){
 			time.Sleep(time.Duration(date[i]) * time.Millisecond)
 			// 执行任务结束时间
 			endDate := time.Now().UnixMilli()
-			fmt.Printf("任务i=%d执行耗时=%a \n",date[i],endDate-now)
+			fmt.Printf("任务i=%d执行耗时=%d \n",date[i],endDate-now)
 		}()
 	}
 	

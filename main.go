@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"go_task/task" // 引入 task 包
+	// "go_task/task" // 引入 task 包
+	"go_task/dbfactory"
 	// "time"
 )
 
@@ -104,10 +105,21 @@ func main() {
 	// time.Sleep(5*time.Second)
 	// fmt.Println("进阶任务8完成")
 
-	task.LockTest()
-	fmt.Println("进阶任务9完成")
+	// task.LockTest()
+	// fmt.Println("进阶任务9完成")
 
 	
-	task.LockTest2()
-	fmt.Println("进阶任务10完成")
+	// task.LockTest2()
+	// fmt.Println("进阶任务10完成")
+
+	// db := dbfactory.Connection_db();
+	// dbfactory.DbTest1(db)
+	// fmt.Println("进阶任务11完成")
+
+	db := dbfactory.Connection_db();
+	dbfactory.DbTest2(db)
+	fmt.Println("进阶任务12完成")
+
+
+
 }
